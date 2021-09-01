@@ -1,0 +1,78 @@
+doctype html
+html(lang="ko")
+    head
+        meta(charset='utf-8')  
+        title= _title 
+        script(type='text/javascript').
+            if (true) {
+                console.log(2);
+            }
+        
+    body
+        h1 hello Jade
+        ul 
+            -for(var i=0; i<5; i++)
+                li coding= i
+        div= time
+            form(action='form_receive_get' method='get')
+                p
+                    input(type='text' name='name')
+                p
+                    textarea(name='description')
+                p
+                    input(type='submit')
+            form(action='form_receive_post' method='post')
+                p
+                    input(type='text' name='name')
+                p
+                    textarea(name='description')
+                p
+                    input(type='submit')
+        h2 Jade ForEach interator
+        ul
+            each val, index in ['zero', 'one', 'two']
+                li= index + ': ' + val
+
+            li 인덱스 값 초기화하기
+
+            each val, index in {1:'one',2:'two',3:'three'}
+                li= index + ': ' + val
+
+
+        h2 Jade While
+        - var n = 0
+            ul
+                while n < 4
+                    li= n++
+
+        h2 Jade For in interator
+        - var values = ['a','b','c','d'];
+            ul
+                each val in values.length ? values : ['There are no values']
+                    li= val
+
+        h2 Jade Input box
+            input(type='button' name='btn' value='버튼' id='btn' )
+            img/
+
+        h2 Jade Mixins reuseable(재사용) list Example
+        //- 선언
+        mixin list
+            ul
+                li 과일1
+                li 과일2
+                li 과일3
+        
+        //- 사용하기
+        +list
+        +list
+
+        h2 Jade Mixins functions Example
+        //- 선언
+        mixin pet(name)
+            li.pet= name
+                
+        //- 사용하기
+        ul
+            +pet('고양이')
+            +pet('개')

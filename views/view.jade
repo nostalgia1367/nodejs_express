@@ -1,0 +1,160 @@
+doctype html
+html(lang="ko")
+    head
+        include head.jade
+
+        script(type='text/javascript').
+            if (true) {
+                console.log(2);
+            }
+
+    body(id="page-top")
+        script.
+            var usingJade = true;
+            if (usingJade)
+                console.log('use jade')
+            else
+                console.log('you are awesome')
+            $(document).ready(function(){
+                $('#wBtn').click(function(){
+                    location.href='/topic/new';
+                });      
+            });
+        nav(class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav")
+            div(class="container")
+                a(class="navbar-brand js-scroll-trigger" href="/topic") node.js Study
+                button(class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation") Menu 
+                    i(class="fas fa-bars")
+            
+                div(class="collapse navbar-collapse" id="navbarResponsive")
+                    ul(class="navbar-nav ml-auto")
+                        each topic in topics
+                            li(class="nav-item mx-0 mx-lg-1")
+                                a(class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/topic/"+topic)= topic
+                        li(class="nav-item mx-0 mx-lg-1")
+                            a(class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio") Images    
+                        //- li(class="nav-item mx-0 mx-lg-1")
+                        //-     a(class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about") About
+                        //- li(class="nav-item mx-0 mx-lg-1")
+                        //-     a(class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact") Contact
+
+        <!-- Header -->
+        header(class="masthead bg-primary text-white text-center")
+            div(class="container")
+                img(class="img-fluid mb-5 d-block mx-auto" src="/img/profile.png" alt="")
+                h1(class="text-uppercase mb-0")= title
+                hr(class="star-light")
+                h2(class="font-weight-light mb-0") 
+                  = description  
+                hr(class="star-light")
+                h2(class="font-weight-light mb-0") 
+                    input(type='button' class='btn btn-warning' value='글쓰기' id='wBtn' )
+
+        //- article
+        //-     h2= title
+        //-     = description
+        //- div
+        //-     input(type='button' value='글쓰기' id='wBtn' )
+        section(class="portfolio" id="portfolio")
+            div(class="container")
+            h2(class="text-center text-uppercase text-secondary mb-0") Images
+            hr(class="star-dark mb-5")
+            div(class="row")
+                div(class="col-md-6 col-lg-4")
+                    a(class="portfolio-item d-block mx-auto" href="#portfolio-modal-1")
+                        div(class="portfolio-item-caption d-flex position-absolute h-100 w-100")
+                            div(class="portfolio-item-caption-content my-auto w-100 text-center text-white")
+                                i(class="fas fa-search-plus fa-3x")
+                        img(class="img-fluid" src="/img/portfolio/cabin.png" alt="")
+                div(class="col-md-6 col-lg-4")
+                    a(class="portfolio-item d-block mx-auto" href="#portfolio-modal-2")
+                        div(class="portfolio-item-caption d-flex position-absolute h-100 w-100")
+                            div(class="portfolio-item-caption-content my-auto w-100 text-center text-white")
+                                i(class="fas fa-search-plus fa-3x")
+                        img(class="img-fluid" src="/img/portfolio/cake.png" alt="")
+                div(class="col-md-6 col-lg-4")
+                    a(class="portfolio-item d-block mx-auto" href="#portfolio-modal-3")
+                        div(class="portfolio-item-caption d-flex position-absolute h-100 w-100")
+                            div(class="portfolio-item-caption-content my-auto w-100 text-center text-white")
+                                i(class="fas fa-search-plus fa-3x")
+                        img(class="img-fluid" src="/img/portfolio/cake.png" alt="")
+                div(class="col-md-6 col-lg-4")
+                    a(class="portfolio-item d-block mx-auto" href="#portfolio-modal-4")
+                        div(class="portfolio-item-caption d-flex position-absolute h-100 w-100")
+                            div(class="portfolio-item-caption-content my-auto w-100 text-center text-white")
+                                i(class="fas fa-search-plus fa-3x")
+                        img(class="img-fluid" src="/img/portfolio/cake.png" alt="")
+                div(class="col-md-6 col-lg-4")
+                    a(class="portfolio-item d-block mx-auto" href="#portfolio-modal-5")
+                        div(class="portfolio-item-caption d-flex position-absolute h-100 w-100")
+                            div(class="portfolio-item-caption-content my-auto w-100 text-center text-white")
+                                i(class="fas fa-search-plus fa-3x")
+                        img(class="img-fluid" src="/img/portfolio/cake.png" alt="")
+
+                div(class="col-md-6 col-lg-4")
+                    a(class="portfolio-item d-block mx-auto" href="#portfolio-modal-6")
+                        div(class="portfolio-item-caption d-flex position-absolute h-100 w-100")
+                            div(class="portfolio-item-caption-content my-auto w-100 text-center text-white")
+                                i(class="fas fa-search-plus fa-3x")
+                        img(class="img-fluid" src="/img/portfolio/cake.png" alt="")
+
+
+        <!-- Footer -->
+        footer(class="footer text-center")
+            div(class="container")
+                div(class="row")
+                    div(class="col-md-4 mb-5 mb-lg-0")
+                        h4(class="text-uppercase mb-4") Location
+                        p(class="lead mb-0") Daerim Station
+                            br
+                
+                    div(class="col-md-4 mb-5 mb-lg-0")
+                        h4(class="text-uppercase mb-4") Around the Web
+                        ul(class="list-inline mb-0")
+                            li(class="list-inline-item")
+                                a(class="btn btn-outline-light btn-social text-center rounded-circle" href="#")
+                                    i(class="fab fa-fw fa-facebook-f")
+                            li(class="list-inline-item")
+                                a(class="btn btn-outline-light btn-social text-center rounded-circle" href="#")
+                                    i(class="fab fa-fw fa-google-plus-g")
+                            li(class="list-inline-item")
+                                a(class="btn btn-outline-light btn-social text-center rounded-circle" href="#")
+                                    i(class="fab fa-fw fa-twitter")
+                            li(class="list-inline-item")
+                                a(class="btn btn-outline-light btn-social text-center rounded-circle" href="#")
+                                    i(class="fab fa-fw fa-linkedin-in")
+
+                            li(class="list-inline-item")
+                                a(class="btn btn-outline-light btn-social text-center rounded-circle" href="#")
+                                    i(class="fab fa-fw fa-dribbble")
+                    div(class="col-md-4")
+                        h4(class="text-uppercase mb-4") About Developer
+                        p(class="lead mb-0") I'm Gold Spoon 
+                            a(href="https://nodejs.org/dist/latest-v8.x/docs/api/" target="_blank") Start Node.js
+
+        div(class="copyright py-4 text-center text-white")
+            div(class="container")
+                small Copyright &copy; jframework 2018
+        <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+        div(class="scroll-to-top d-lg-none position-fixed ")
+            a(class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top")
+                i(class="fa fa-chevron-up")
+
+        <!-- Portfolio Modals -->
+
+        <!-- Portfolio Modal 1 -->
+        div(class="portfolio-modal mfp-hide" id="portfolio-modal-1")
+            div(class="portfolio-modal-dialog bg-white")
+                a(class="close-button d-none d-md-block portfolio-modal-dismiss" href="#")
+                    i(class="fa fa-3x fa-times")
+                div(class="container text-center")
+                    div(class="row")
+                        div(class="col-lg-8 mx-auto")
+                            h2(class="text-secondary text-uppercase mb-0") 나무집
+                            hr(class="star-dark mb-5")
+                            img(class="img-fluid mb-5" src="/img/portfolio/cabin.png" alt="")
+                            p(class="mb-5") example
+                            a(class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#")
+                                i(class="fa fa-close") 사라져!
+
+        include footer.jade

@@ -1,0 +1,24 @@
+doctype html
+html(lang="ko")
+    head
+        meta(charset='utf-8')  
+        title= _title 
+        script(type='text/javascript').
+            if (true) {
+                console.log(2);
+            }
+        //- script(type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+    body
+        h1 
+            a(href='/topic') Node.js Study
+        ul
+            each topic in topics
+                li
+                    a(href='/topic/'+topic)= topic
+        form(action="/topic" method="post")
+            p
+                input(type='text' name='title' placeholder='제목을 입력하세요.')
+            p
+                textarea(name='description')
+            p
+                input(type='submit' value='저장하기')    

@@ -1,0 +1,14 @@
+{
+  "name": "inflearn_mysql01",
+  "version": "1.0.0",
+  "description": "mysql을 이용한 샘플프로젝트",
+  "main": "mysql.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mysql": "^2.16.0"
+  }
+}
