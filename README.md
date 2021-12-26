@@ -7,6 +7,11 @@ npm install
 </pre>
 
 
+## 실행방법 
+node filename.js
+ts-node filename.ts
+
+
 ## Webstorm 단축키
 <pre>
 Alt + 1 : 프로젝트 explorer로 이동
